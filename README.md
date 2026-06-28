@@ -97,6 +97,3 @@ cd frontend && npm install
 npm run dev
 ```
 
----
-
-**Sowaiba Arshad** · CS Final Year Project · 2025–26
