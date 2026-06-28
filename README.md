@@ -3,7 +3,7 @@
 [![HuggingFace Model](https://img.shields.io/badge/🤗%20HuggingFace-Model-blue)](https://huggingface.co/Sowaiba01/deepguard-ai)
 [![HuggingFace Dataset](https://img.shields.io/badge/🤗%20HuggingFace-Dataset-green)](https://huggingface.co/datasets/Sowaiba01/deepguard-dataset)
 
-A full-stack deepfake detection and generation platform — Final Year Project 2025–26.
+A full-stack deepfake detection and generation platform.
 
 Built, trained, and deployed end-to-end: custom dataset, fine-tuned detection model, GradCAM explainability, and a face-swap generation module for adversarial research.
 
