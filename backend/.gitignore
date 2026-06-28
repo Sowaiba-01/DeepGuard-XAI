@@ -1,0 +1,10 @@
+venv/
+__pycache__/
+*.pyc
+.env
+models/*.pth
+models/*.pkl
+models/*.onnx
+models/buffalo_l/
+data/
+*.log

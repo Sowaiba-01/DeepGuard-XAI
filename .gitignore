@@ -1,0 +1,41 @@
+# ── Python ──────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+
+# ── Virtual environment ──────────────────────────
+backend/venv/
+backend/.venv/
+
+# ── Model weights (too large for GitHub) ────────
+backend/models/*.pth
+backend/models/*.onnx
+backend/models/*.pkl
+backend/models/buffalo_l/
+backend/.insightface/
+
+# ── Environment secrets ──────────────────────────
+.env
+.env.local
+.env.production
+backend/.env
+
+# ── Next.js ──────────────────────────────────────
+frontend/.next/
+frontend/out/
+frontend/node_modules/
+
+# ── Logs ─────────────────────────────────────────
+*.log
+npm-debug.log*
+
+# ── OS ───────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── IDE ───────────────────────────────────────────
+.vscode/
+.idea/
