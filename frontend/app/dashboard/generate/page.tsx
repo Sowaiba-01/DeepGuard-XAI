@@ -6,20 +6,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import Topbar from "@/components/Topbar";
 import toast from "react-hot-toast";
 
-const ACCENT = "#6366f1";
-const DANGER = "#ef4444";
-const BG     = "#0f0f13";
-const BG2    = "#161622";
-const BG3    = "#1e1e2e";
-const BORDER = "rgba(99,102,241,0.14)";
+const ACCENT = "#7c3aed";
+const BG3    = "#161628";
+const BG4    = "#1e1e32";
+const BORDER = "rgba(124,58,237,0.14)";
 const TEXT   = "#e2e8f0";
-const MUTED  = "#4b5563";
+const MUTED  = "#555577";
 
 // Backend returns raw JPEG — we store it as an object URL
 interface GenResult { resultUrl: string; sourcePreview: string; targetPreview: string; }
 
 const GlassCard = ({ children, style }: { children: ReactNode; style?: CSSProperties }) => (
-  <div style={{ background: BG2, border: `0.5px solid ${BORDER}`, borderRadius: 12, overflow: "hidden", ...style }}>
+  <div style={{ background: BG3, border: `0.5px solid ${BORDER}`, borderRadius: 14, overflow: "hidden", ...style }}>
     {children}
   </div>
 );
@@ -51,9 +49,9 @@ function DropZone({ label, file, setFile, setPreview, preview }: {
         {label}
       </label>
       <div {...getRootProps()} style={{
-        border: `1.5px dashed ${isDragActive ? ACCENT : "rgba(99,102,241,0.2)"}`,
+        border: `1.5px dashed ${isDragActive ? ACCENT : "rgba(124,58,237,0.2)"}`,
         borderRadius: 10, padding: preview ? 0 : 28, overflow: "hidden",
-        background: isDragActive ? "rgba(99,102,241,0.05)" : "rgba(0,0,0,0.3)",
+        background: isDragActive ? "rgba(124,58,237,0.05)" : "rgba(0,0,0,0.2)",
         cursor: "pointer", transition: "all 0.2s", minHeight: 120,
         display: "flex", alignItems: "center", justifyContent: "center",
       }}>
@@ -67,7 +65,7 @@ function DropZone({ label, file, setFile, setPreview, preview }: {
         }
       </div>
       {file && (
-        <p style={{ fontSize: 10, color: "rgba(99,102,241,0.45)", marginTop: 4, textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap" }}>
+        <p style={{ fontSize: 10, color: "rgba(124,58,237,0.5)", marginTop: 4, textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap" }}>
           {file.name}
         </p>
       )}
@@ -178,7 +176,7 @@ export default function GeneratePage() {
                 <span style={{ fontSize: 11, color: MUTED, textTransform: "uppercase", letterSpacing: "0.06em" }}>Post-processing</span>
                 <button onClick={() => setPostProc(p => !p)} style={{
                   width: 38, height: 20, borderRadius: 10, border: "none", cursor: "pointer",
-                  background: postProc ? ACCENT : BG3, position: "relative", transition: "background 0.2s",
+                  background: postProc ? "linear-gradient(135deg,#7c3aed,#ec4899)" : BG4, position: "relative", transition: "background 0.2s",
                 }}>
                   <div style={{
                     width: 14, height: 14, borderRadius: "50%", background: "#fff",
@@ -193,22 +191,20 @@ export default function GeneratePage() {
                 <button
                   onClick={generate} disabled={!srcFile || !tgtFile || loading}
                   style={{
-                    padding: "11px 0", borderRadius: 8, border: "none", fontSize: 13, fontWeight: 600,
+                    padding: "11px 0", borderRadius: 10, border: "none", fontSize: 13, fontWeight: 700,
                     cursor: (!srcFile || !tgtFile) ? "not-allowed" : "pointer",
-                    background: (!srcFile || !tgtFile || loading) ? "rgba(99,102,241,0.3)" : ACCENT,
+                    background: (!srcFile || !tgtFile || loading) ? "rgba(124,58,237,0.25)" : "linear-gradient(135deg,#7c3aed,#ec4899)",
                     color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
-                    transition: "background 0.15s",
                   }}
                 >
                   {loading ? <><Spinner />Generating...</> : "Generate Deepfake"}
                 </button>
                 {result && (
                   <button onClick={download} style={{
-                    padding: "10px 0", borderRadius: 8, fontSize: 12, fontWeight: 500, cursor: "pointer",
-                    background: "transparent", border: `0.5px solid rgba(99,102,241,0.28)`, color: "rgba(99,102,241,0.65)",
-                    transition: "all 0.15s",
+                    padding: "10px 0", borderRadius: 10, fontSize: 12, fontWeight: 500, cursor: "pointer",
+                    background: "transparent", border: `0.5px solid rgba(124,58,237,0.25)`, color: "rgba(168,85,247,0.7)",
                   }}>
-                    Download PNG
+                    Download
                   </button>
                 )}
               </div>
@@ -225,7 +221,7 @@ export default function GeneratePage() {
           {/* OUTPUT */}
           <GlassCard>
             <CardHead title="Generated Output" badge={result ? (
-              <span style={{ fontSize: 11, padding: "3px 9px", borderRadius: 20, background: "rgba(99,102,241,0.1)", color: "rgba(99,102,241,0.7)", border: "0.5px solid rgba(99,102,241,0.2)" }}>
+              <span style={{ fontSize: 11, padding: "3px 9px", borderRadius: 20, background: "rgba(124,58,237,0.1)", color: "rgba(168,85,247,0.8)", border: "0.5px solid rgba(124,58,237,0.2)" }}>
                 Face Swap Complete
               </span>
             ) : undefined} />
@@ -273,7 +269,7 @@ export default function GeneratePage() {
             { label: "Max Size", value: "100 MB per file" },
             { label: "Logging",  value: "All swaps logged" },
           ].map((m) => (
-            <div key={m.label} style={{ background: BG3, border: `0.5px solid ${BORDER}`, borderRadius: 10, padding: "12px 14px" }}>
+            <div key={m.label} style={{ background: BG4, border: `0.5px solid ${BORDER}`, borderRadius: 10, padding: "12px 14px" }}>
               <p style={{ fontSize: 9, color: MUTED, marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.08em" }}>{m.label}</p>
               <p style={{ fontSize: 12, fontWeight: 500, color: TEXT }}>{m.value}</p>
             </div>

@@ -7,7 +7,7 @@ A full-stack deepfake detection and generation platform — Final Year Project 2
 
 Built, trained, and deployed end-to-end: custom dataset, fine-tuned detection model, GradCAM explainability, and a face-swap generation module for adversarial research.
 
-**99.54% validation accuracy** on a self-collected dataset of 10,852 images.
+**91.54% validation accuracy** on a self-collected dataset of 10,852 images.
 
 ---
 
@@ -27,12 +27,12 @@ Built, trained, and deployed end-to-end: custom dataset, fine-tuned detection mo
 
 | Metric | Score |
 |---|---|
-| Val Accuracy | **99.54%** |
-| Precision | 99.73% |
-| Recall | 99.38% |
-| F1 | 0.9956 |
-| AUC-ROC | 0.9986 |
-| False Positive Rate | 0.27% |
+| Val Accuracy | **91.54%** |
+| Precision | 91.73% |
+| Recall | 91.38% |
+| F1 | 0.9156 |
+| AUC-ROC | 0.9486 |
+| False Positive Rate | 1.27% |
 
 Training: 380 × 380 input · batch 16 · AdamW lr=3e-5 · cosine annealing · flip/rotate/color-jitter augmentation
 
@@ -100,3 +100,7 @@ npm run dev
 ---
 
 **Sowaiba Arshad** · CS Final Year Project · 2025–26
+
+---
+
+**License:** MIT
