@@ -64,6 +64,7 @@ export default function DetectPage() {
     try {
       const fd = new FormData();
       fd.append("file", file);
+      fd.append("gradcam", "true");
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/detect`, { method: "POST", body: fd });
       if (!res.ok) throw new Error(`Server error ${res.status}`);
       setResult(await res.json());
