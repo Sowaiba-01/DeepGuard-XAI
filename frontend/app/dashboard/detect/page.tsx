@@ -178,12 +178,17 @@ export default function DetectPage() {
                         ))}
                       </div>
                     )}
-                    {result.gradcam_b64 && (
-                      <div>
-                        <div style={{ fontSize: 10, color: MUTED, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.07em" }}>GradCAM Heatmap</div>
-                        <img src={`data:image/jpeg;base64,${result.gradcam_b64}`} alt="GradCAM" style={{ width: "100%", borderRadius: 10, border: `0.5px solid ${BORDER}` }} />
-                      </div>
-                    )}
+                    <div>
+                      <div style={{ fontSize: 10, color: MUTED, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.07em" }}>GradCAM Heatmap</div>
+                      {result.gradcam_b64
+                        ? <img src={`data:image/jpeg;base64,${result.gradcam_b64}`} alt="GradCAM" style={{ width: "100%", borderRadius: 10, border: `0.5px solid ${BORDER}` }} />
+                        : <div style={{ padding: "16px", borderRadius: 10, background: BG4, border: `0.5px solid ${BORDER}`, textAlign: "center" }}>
+                            <div style={{ fontSize: 20, marginBottom: 4, opacity: 0.25 }}>◈</div>
+                            <div style={{ fontSize: 11, color: MUTED }}>GradCAM requires live backend</div>
+                            <div style={{ fontSize: 10, color: "#2a2a42", marginTop: 2 }}>HuggingFace Space must be running</div>
+                          </div>
+                      }
+                    </div>
                   </motion.div>
                 ) : (
                   <motion.div key="empty" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
