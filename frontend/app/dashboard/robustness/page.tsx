@@ -1,5 +1,4 @@
 "use client";
-
 import { type ReactNode, type CSSProperties } from "react";
 import { motion } from "framer-motion";
 import Topbar from "@/components/Topbar";
