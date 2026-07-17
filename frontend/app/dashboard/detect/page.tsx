@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useCallback, type ReactNode, type CSSProperties } from "react";
 import { useDropzone } from "react-dropzone";
 import { motion, AnimatePresence } from "framer-motion";
