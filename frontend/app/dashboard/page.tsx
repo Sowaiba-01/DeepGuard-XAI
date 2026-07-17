@@ -4,7 +4,6 @@ import Link from "next/link";
 import Topbar from "@/components/Topbar";
 
 const BG3 = "#161628", BG4 = "#1e1e32", BORDER = "rgba(124,58,237,0.14)", TEXT = "#e2e8f0", MUTED = "#555577";
-
 export default function DashboardHome() {
   const { data: session } = useSession();
   const name = session?.user?.name?.split(" ")[0] ?? "Researcher";
